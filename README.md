@@ -7,7 +7,7 @@ Este repositório contém minha entrega referente à avaliação técnica basead
 
 ## ✅ Objetivo
 
-Implementar os repositórios `Category` e `Product` seguindo os padrões da Clean Architecture, aplicar a migration `Initial` e conectar a aplicação com uma instância de SQL Server no Azure.
+Implementar os repositórios `Category` e `Product` seguindo os padrões da Clean Architecture, aplicar a migration `Initial` e conectar a aplicação com uma instância de SQL Server no SSMS.
 
 ---
 
@@ -17,52 +17,37 @@ Implementar os repositórios `Category` e `Product` seguindo os padrões da Clea
 - [x] Configurações com `EntityTypeConfiguration` para `Category` e `Product`
 - [x] Injeção de dependência configurada (`DependencyInjectionAPI`)
 - [x] Migration `Initial` criada com `HasData()` para categorias
-- [x] Banco de dados SQL Server criado no Azure
-- [x] Migration aplicada com sucesso no Azure via `dotnet ef database update`
+- [x] Migration aplicada com sucesso no SSMS via `dotnet ef database update`
 
 ---
 # 🔧 Comandos utilizados
 ## Criação da migration
 dotnet ef migrations add Initial --project Infra.Data --startup-project WebAPI
 
-## Aplicação no banco de dados (Azure)
+## Aplicação no banco de dados 
 dotnet ef database update --project Infra.Data --startup-project WebAPI
 
-
-## Aplicação no banco de dados (Azure)
-dotnet ef database update --project Infra.Data --startup-project WebAPI
-
-# 🔗 String de conexão (mascarada)
-
-"ConnectionStrings": {
-  "DefaultConnection": "Server=tcp:servidor-sql-aluno.database.windows.net,1433;Initial Catalog=NomeDoBanco;Persist Security Info=False;User ID=aluno_azure;Password=********;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-}
-
-# ☁️ Configuração no Azure
-SQL Server criado no portal Azure
-
-Banco de dados nomeado: avaliacao_tp2_aluno
-
-IP local autorizado no firewall
-
-Autenticação SQL ativada
+Banco de dados nomeado: HelpAppDb
 
 Migration aplicada com sucesso diretamente do Visual Studio Terminal
 
-# 🖼️ Prints de evidência (opcional)
-Insira prints aqui comprovando:
+# 🖼️ Prints de evidência 
+## Aplicação bem-sucedida da migration no SSMS
+![Migration](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/migration.png)
 
-Aplicação bem-sucedida da migration no Azure
+## Tabela Category
+![Category](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/tabelaCategory.png)
 
-Tabelas e dados populados
+## Tabela Product
+![Product](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/tabelaProduct.png)
 
 # 👨‍💻 Dados do aluno
-Nome: [Seu Nome Aqui]
+Nome: Isabela Neves da Silva
 Curso: Desenvolvimento de Sistemas – 3º Semestre
 
 Professor: Victor Icoma
 
-Branch da entrega: avaliacao-githubaluno
+Branch da entrega: avaliacao-IsabelaNeves1
 
 ## 🧱 Estrutura da aplicação
 
