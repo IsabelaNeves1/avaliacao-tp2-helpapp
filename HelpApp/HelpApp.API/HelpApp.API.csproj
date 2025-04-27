@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HelpApp.Application\HelpApp.Application.csproj" />
     <ProjectReference Include="..\HelpApp.Infra.Data\HelpApp.Infra.Data.csproj" />
+    <ProjectReference Include="..\HelpApp.Infra.IoC\HelpApp.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

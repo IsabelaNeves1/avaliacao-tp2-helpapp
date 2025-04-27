@@ -1,6 +1,7 @@
 ﻿using HelpApp.Domain.Entities;
 using FluentAssertions;
 using Xunit;
+using System;
 
 namespace HelpApp.Domain.Test
 {
@@ -64,7 +65,7 @@ namespace HelpApp.Domain.Test
                  .WithMessage("Invalid price negative value.");
         }
 
-        [Theory(DisplayName = "Create Product With Inavlid Stock")]
+        [Theory(DisplayName = "Create Product With Invalid Stock")]
         [InlineData(-5)]
         public void CreateProduct_InvalidStockValue_ExceptionDomainNegativeValue(int value)
         {
@@ -82,6 +83,33 @@ namespace HelpApp.Domain.Test
             action.Should()
                 .Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
                  .WithMessage("Invalid image name, too long, maximum 250 characters.");
+        }
+        [Fact(DisplayName = "Create product With Null Description")]
+        public void CreateProduct_WithNullDescription_DomainException()
+        {
+            Action action = () => new Product("Product Name", null, 9.99m,
+                99, "image.jpg");
+            action.Should()
+                .Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                 .WithMessage("Invalid description, name is required.");
+        }
+        [Fact(DisplayName = "Create product With Empty Description")]
+        public void CreateProduct_WithEmptyDescription_DomainException()
+        {
+            Action action = () => new Product("Product Name", "", 9.99m,
+                99, "image.jpg");
+            action.Should()
+                .Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                 .WithMessage("Invalid description, name is required.");
+        }
+        [Fact(DisplayName = "Create product With Short Description")]
+        public void CreateProduct_WithShortDescription_DomainException()
+        {
+            Action action = () => new Product("Product Name", "wer", 9.99m,
+                99, "image.jpg");
+            action.Should()
+                .Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                 .WithMessage("Invalid description, too short, minimum 5 characters.");
         }
         #endregion
     }

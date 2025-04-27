@@ -34,6 +34,9 @@ namespace HelpApp.Domain.Entities
             DomainExceptionValidation.When(name.Length < 3,
                 "Invalid name, too short, minimum 3 characters.");
 
+            const int maxLength = 255;DomainExceptionValidation.When(name.Length > maxLength,
+                $"Invalid name, too long, maximum {maxLength} characters.");
+
             Name = name;
         }
         #endregion

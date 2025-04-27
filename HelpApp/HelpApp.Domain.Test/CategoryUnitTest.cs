@@ -1,6 +1,7 @@
 ﻿using HelpApp.Domain.Entities;
 using FluentAssertions;
 using Xunit;
+using HelpApp.Domain.Validation;
 
 namespace HelpApp.Domain.Test
 {
@@ -21,6 +22,15 @@ namespace HelpApp.Domain.Test
             Action action = () => new Category(1, "");
             action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
                 .WithMessage("Invalid name, name is required.");
+        }
+
+        [Fact(DisplayName ="Create Category With Name Too Long")]
+        public void CreateCategory_WithNameTooLong_ResultObjectException()
+        {
+            string longName = new string('A', 256);
+            Action action = () => new Category(longName);
+            action.Should().Throw<DomainExceptionValidation>()
+                .WithMessage("Invalid name, too long, maximum 255 characters.");
         }
         #endregion
     }
