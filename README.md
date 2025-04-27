@@ -32,13 +32,13 @@ Banco de dados nomeado: HelpAppDb
 Migration aplicada com sucesso diretamente do Visual Studio Terminal
 
 # 🖼️ Prints de evidência 
-Aplicação bem-sucedida da migration no SSMS
+## Aplicação bem-sucedida da migration no SSMS
 ![Migration](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/migration.png)
 
-Tabela Category
+## Tabela Category
 ![Category](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/tabelaCategory.png)
 
-Tabela Product
+## Tabela Product
 ![Product](https://github.com/IsabelaNeves1/avaliacao-tp2-helpapp/blob/avaliacao-IsabelaNeves1/images/tabelaProduct.png)
 
 # 👨‍💻 Dados do aluno
